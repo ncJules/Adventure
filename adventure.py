@@ -1,4 +1,5 @@
 from adventurelib import *
+from genericfunctionslib import *
 
 """ adventure specific settings """
 
