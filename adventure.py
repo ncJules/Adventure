@@ -1,5 +1,4 @@
 from adventurelib import *
-from genericfunctionslib import *
 
 global current_room
 
@@ -37,10 +36,6 @@ def brush_hair():
         say("Your hair is brushed now, you look like a princess!")
     else:
         say('You do not have a brush.')
-
-start()
-look()
-
 
 """ Define all the general stuff """
 
@@ -107,3 +102,6 @@ def check_inventory_for(thing):
         say('You have a %s' % thing)
     else:
         say('You do not have a %s' % thing)
+
+look()
+start()
