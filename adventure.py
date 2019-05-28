@@ -1,6 +1,8 @@
 from adventurelib import *
 from genericfunctionslib import *
 
+global current_room
+
 """ adventure specific settings """
 
 Room.items = Bag()
@@ -36,8 +38,11 @@ def brush_hair():
     else:
         say('You do not have a brush.')
 
+start()
+look()
 
-"""generic functions"""
+
+""" Define all the general stuff """
 
 """Define the movements between the rooms"""
 
@@ -102,7 +107,3 @@ def check_inventory_for(thing):
         say('You have a %s' % thing)
     else:
         say('You do not have a %s' % thing)
-
-
-start()
-look()
