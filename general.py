@@ -18,8 +18,7 @@ def go (direction):
         current_room = room
         say('You go %s.' % direction)
         look()
-        global UsedSteps
-        UsedSteps = UsedSteps + 1
+        increaseSteps()
     else:
         say('There is nothing %s of you.' % direction)
 
@@ -42,8 +41,7 @@ def take(thing):
     if obj:
         say('You pick up the %s.' % obj)
         inventory.add(obj)
-        global UsedSteps
-        UsedSteps = UsedSteps + 1
+        increaseSteps()
     else:
         say('There is no %s here.' % thing)
 
@@ -55,8 +53,7 @@ def drop(thing):
     else:
         say('You drop the %s.' % obj)
         current_room.items.add(obj)
-        global UsedSteps
-        UsedSteps = UsedSteps + 1
+        increaseSteps()
 
 @when('inventory')
 def show_inventory():
@@ -78,10 +75,13 @@ def check_inventory_for(thing):
 
 """ Mostly useless functions """
 
+def increaseSteps():
+    global UsedSteps
+    UsedSteps = UsedSteps + 1
+
 @when('steps')
 def steps():
-    global UsedSteps
-    say('It took you %i actions to get this far.' % UsedSteps)
+    say('It took you %i action(s) to get this far.' % UsedSteps)
 
 @when('hi')
 def hi():
