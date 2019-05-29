@@ -1,4 +1,7 @@
-from adventurelib import *
+import random
+
+from cave import *
+
 
 """ Define all the general stuff """
 
@@ -15,6 +18,8 @@ def go (direction):
         current_room = room
         say('You go %s.' % direction)
         look()
+        global UsedSteps
+        UsedSteps = UsedSteps + 1
     else:
         say('There is nothing %s of you.' % direction)
 
@@ -37,6 +42,8 @@ def take(thing):
     if obj:
         say('You pick up the %s.' % obj)
         inventory.add(obj)
+        global UsedSteps
+        UsedSteps = UsedSteps + 1
     else:
         say('There is no %s here.' % thing)
 
@@ -48,6 +55,8 @@ def drop(thing):
     else:
         say('You drop the %s.' % obj)
         current_room.items.add(obj)
+        global UsedSteps
+        UsedSteps = UsedSteps + 1
 
 @when('inventory')
 def show_inventory():
@@ -65,3 +74,23 @@ def check_inventory_for(thing):
         say('You have a %s' % thing)
     else:
         say('You do not have a %s' % thing)
+
+
+""" Mostly useless functions """
+
+@when('steps')
+def steps():
+    global UsedSteps
+    say('It took you %i actions to get this far.' % UsedSteps)
+
+@when('hi')
+def hi():
+    RandomNumber = random.randint(1,11)
+    if RandomNumber < 4: 
+        say('Well, hello there!')
+    elif RandomNumber <6:
+        say('Greetings, traveller.')
+    elif RandomNumber == 6:
+        say('Welcome!')
+    else:
+        say('Hi, how nice of you to join this adventure!')
