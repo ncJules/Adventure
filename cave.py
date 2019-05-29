@@ -6,26 +6,34 @@ Room.items = Bag()
 
 """define the rooms available, their descriptions and connections"""
 
-current_room = bath_room = Room("""
-You are in the bath room. 
-""")
+hall1 = Room("""You are in Hall 1""")
 
-living_room = bath_room.north = Room("""
-You enter the living room.
-""")
+hall2 = hall1.north = Room("""You are in Hall 2""")
 
-kitchen = living_room.west = Room("""
-You are now in the kitchen. It smells nice...
-""")
+hall3 = hall2.east = Room("""You are in Hall 3""")
 
-"""define the items avilable and where to find them"""
+hall4 = hall3.north = Room("""You are in Hall 4""")
+
+hall5 = hall4.east = Room("""You are in Hall 5""")
+
+storage1 = hall1.east = Room("""You are in Storage 1""")
+
+storage2 = hall5.east = Room("""You are in Storage 2""")
+
+sleeping = hall3.east = Room("""You are in Sleeping""")
+
+secret1 = storage1.east = Room("""You are in Secret 1""")
+
+secret2 = sleeping.south = Room("""You are in Secret 2""")
+
+
+
+"""define the items available and where to find them"""
 
 brush = Item('brush','brush')
-bath_room.items = Bag({brush,})
+sleeping.items = Bag({brush,})
 
-inventory = Bag()
 
-UsedSteps = 0
 
 """ Define special actions"""
 
@@ -36,3 +44,11 @@ def brush_hair():
         say("Your hair is brushed now, you look like a princess!")
     else:
         say('You do not have a brush.')
+
+        """ Init values"""
+
+current_room = hall1
+
+inventory = Bag()
+
+UsedSteps = 0
