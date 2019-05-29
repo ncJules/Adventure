@@ -1,4 +1,4 @@
-from main import *
+from adventurelib import *
 
 """ adventure specific settings """
 
@@ -25,6 +25,8 @@ bath_room.items = Bag({brush,})
 
 inventory = Bag()
 
+UsedSteps = 0
+
 """ Define special actions"""
 
 @when('brush hair')
@@ -34,6 +36,3 @@ def brush_hair():
         say("Your hair is brushed now, you look like a princess!")
     else:
         say('You do not have a brush.')
-
-
-start()
