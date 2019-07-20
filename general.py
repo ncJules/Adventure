@@ -72,6 +72,52 @@ def check_inventory_for(thing):
     else:
         say('You do not have a %s' % thing)
 
+@when('use THING')
+def use(thing):
+    """first determine if a single item shall be used or is more shall be combined by checking for the word WITH """
+    if thing.count("with",0,len(thing)) == 0:
+        obj = inventory.find(thing)
+        if obj:
+            increaseSteps()
+            if 1==0:
+                """possible actions shall be added here"""
+            else:
+                RandomNumber = random.randint(1,11)
+                if RandomNumber < 4: 
+                    say("There is not much to be done!")
+                elif RandomNumber < 6:
+                    say("I do not see the value in that.")
+                elif RandomNumber < 7:
+                    say("But I really don't wanna...")
+                else:
+                    say("I would love to, but I don't see how.")
+        else:
+            say("You don't have a %s" % thing)
+    else:
+        thing1 = thing[:thing.rfind("with")-1]
+        thing2 = thing[thing.rfind("with")+5:]
+        obj1 = inventory.find(thing1)
+        obj2 = inventory.find(thing2)
+        if obj1:
+            if obj2: 
+                increaseSteps()
+                if 1==0:
+                    """possible actions shall be added here"""
+                else:
+                    RandomNumber = random.randint(1,11)
+                    if RandomNumber < 4: 
+                        say("I don't see how.")
+                    elif RandomNumber < 6:
+                        say("Interesting, but NO.")
+                    elif RandomNumber < 7:
+                        say("I would love to, but then I would have to kill you...")
+                    else:
+                        say("But I really don't wanna...")
+            else:
+                say("You don't have a %s" % thing2)
+        else:
+            say("You don't have a %s" % thing1)
+
 
 """ Mostly useless functions """
 
