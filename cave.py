@@ -8,9 +8,16 @@ Room.items = Bag()
 brush = Item('brush','brush')
 
 
+"""define characters"""
+Room.characters = Group()
+
+Nadihm = Character('Nadihm', 'Nadihm')
+
+
 """define the rooms available, their descriptions, contained items and connections"""
 
 hall1 = Room("""You are in Hall 1""")
+hall1.characters = Group({Nadihm,})
 
 hall2 = hall1.north = Room("""You are in Hall 2""")
 
@@ -30,6 +37,7 @@ sleeping.items = Bag({brush,})
 secret1 = storage1.east = Room("""You are in Secret 1""")
 
 secret2 = sleeping.south = Room("""You are in Secret 2""")
+
 
 
 """ Define special actions"""
