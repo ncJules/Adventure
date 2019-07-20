@@ -31,6 +31,8 @@ def look():
         say('You see:')
         for i in current_room.items:
             say('* A %s' % i)
+    if current_room.characters:
+        say("There is somebody in this room.")
 
 
 """Define all the item related stuff"""
