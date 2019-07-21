@@ -120,6 +120,15 @@ def use(thing):
         else:
             say("You don't have a %s" % thing1)
 
+""" Story related checkpoints """
+def init_CPs():
+    global CP1
+    CP1 = False
+""" if you want to set a checkpoint to true, code: 
+    global CP
+    CP = True
+"""
+
 
 """ Mostly useless functions """
 
