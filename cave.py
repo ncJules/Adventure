@@ -1,4 +1,4 @@
-from adventurelib import *
+from adventurelib_with_characters import *
 
 """ adventure specific settings """
 
