@@ -19,5 +19,6 @@ say("Now you are at the entrance of a cave so well hidden, that you wouldn't hav
 say("Full of hope that your journey might be close to an end, you enter.")
 say("")
 
+init_CPs()
 look()
 start()
