@@ -1,5 +1,6 @@
 from adventurelib_with_characters import *
 
+
 """ adventure specific settings """
 
 """define the items available and where to find them"""
