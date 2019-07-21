@@ -1,5 +1,5 @@
 from general import *
-from adventurelib import *
+from adventurelib_with_characters import *
 
 say("")
 say("Good evening, my dearest Thrablin.")
