@@ -34,14 +34,16 @@ living.characters = Group({Nadihm,})
 supplyI = hall.east = Room("""You are in supply room containing tools and stuff""")
 
 dining = living.east = Room("""You are in the dining room""")
+dining.items = Bag({moonstone,})
 
 kitchen = dining.north = Room("""You are in the kitchen""")
 kitchen.characters = Group({Frain,})
 
 supplyII = kitchen.east = Room("""You are in a supply room with food and drinks.""")
+supplyII.items = Bag({winebottle,})
 
 sleeping = kitchen.west = Room("""You are small room containing three sleeping arrangements""")
-sleeping.items = Bag({axe,})
+sleeping.items = Bag({axe,runepaper,})
 
 treasure = Room("""You have finally found the treaure room. Yay!""")
 
