@@ -6,55 +6,53 @@ from adventurelib_with_characters import *
 """define the items available and where to find them"""
 Room.items = Bag()
 
-brush = Item('brush','brush')
+axe = Item('axe', 'axe')
+key = Item('key', 'key')
+letter = Item('letter', 'a letter from Dàin')
+moonstone = Item('moonstone', 'moonstone')
+runepaper = Item('runepaper', 'runepaper')
+winebottle = Item('bottle', 'bottle')
+
+
 
 
 """define characters"""
 Room.characters = Group()
 
 Nadihm = Character('Nadihm', 'Nadihm')
-
+Fundor = Character('Fundor', 'Fundor')
+Frain = Character('Frain', 'Frain')
 
 """define the rooms available, their descriptions, contained items and connections"""
 
-hall1 = Room("""You are in Hall 1""")
-hall1.characters = Group({Nadihm,})
+hall = Room("""You are in a hall""")
+hall.characters = Group({Fundor,})
 
-hall2 = hall1.north = Room("""You are in Hall 2""")
+living = hall.north = Room("""You are in a living room""")
+living.characters = Group({Nadihm,})
 
-hall3 = hall2.east = Room("""You are in Hall 3""")
+supplyI = hall.east = Room("""You are in supply room containing tools and stuff""")
 
-hall4 = hall3.north = Room("""You are in Hall 4""")
+dining = living.east = Room("""You are in the dining room""")
 
-hall5 = hall4.east = Room("""You are in Hall 5""")
+kitchen = dining.north = Room("""You are in the kitchen""")
+kitchen.characters = Group({Frain,})
 
-storage1 = hall1.east = Room("""You are in Storage 1""")
+supplyII = kitchen.east = Room("""You are in a supply room with food and drinks.""")
 
-storage2 = hall5.east = Room("""You are in Storage 2""")
+sleeping = kitchen.west = Room("""You are small room containing three sleeping arrangements""")
+sleeping.items = Bag({axe,})
 
-sleeping = hall3.east = Room("""You are in Sleeping""")
-sleeping.items = Bag({brush,})
-
-secret1 = storage1.east = Room("""You are in Secret 1""")
-
-secret2 = sleeping.south = Room("""You are in Secret 2""")
+treasure = Room("""You have finally found the treaure room. Yay!""")
 
 
 
-""" Define special actions"""
 
-@when('brush hair')
-def brush_hair():
-    obj = inventory.find('brush')
-    if obj:
-        say("Your hair is brushed now, you look like a princess!")
-    else:
-        say('You do not have a brush.')
 
-        """ Init values"""
+""" init """
 
-current_room = hall1
+current_room = hall
 
-inventory = Bag()
+inventory = Bag({letter,})
 
 UsedSteps = 0
