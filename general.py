@@ -45,13 +45,13 @@ def take(thing):
         inventory.add(obj)
         increaseSteps()
     else:
-        say('There is no %s here.' % thing)
+        say('There is/are no %s here.' % thing)
 
 @when('drop THING')
 def drop(thing):
     obj = inventory.take(thing)
     if not obj:
-        say('You do not have a %s.' % thing)
+        say('You do not have (a) %s.' % thing)
     else:
         say('You drop the %s.' % obj)
         current_room.items.add(obj)
@@ -70,9 +70,9 @@ def show_inventory():
 def check_inventory_for(thing):
     obj = inventory.find(thing)
     if obj:
-        say('You have a %s' % thing)
+        say('You have (a) %s' % thing)
     else:
-        say('You do not have a %s' % thing)
+        say('You do not have (a) %s' % thing)
 
 @when('use THING')
 def use(thing):
@@ -94,7 +94,7 @@ def use(thing):
                 else:
                     say("I would love to, but I don't see how.")
         else:
-            say("You don't have a %s" % thing)
+            say("You don't have (a) %s" % thing)
     else:
         thing1 = thing[:thing.rfind("with")-1]
         thing2 = thing[thing.rfind("with")+5:]
@@ -116,9 +116,9 @@ def use(thing):
                     else:
                         say("But I really don't wanna...")
             else:
-                say("You don't have a %s" % thing2)
+                say("You don't have (a) %s" % thing2)
         else:
-            say("You don't have a %s" % thing1)
+            say("You don't have (a) %s" % thing1)
 
 """ Story related checkpoints """
 def init_CPs():
