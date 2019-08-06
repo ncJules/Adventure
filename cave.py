@@ -6,20 +6,20 @@ from adventurelib_with_characters import *
 """define the items available and where to find them"""
 Room.items = Bag()
 
-axe = Item('axe', 'axe')
-key = Item('key', 'key')
-letter = Item('letter', 'a letter from Dàin')
-moonstone = Item('moonstone', 'moonstone')
-runepaper = Item('runepaper', 'runepaper')
-winebottle = Item('winebottle', 'bottle')
-longbow = Item('longbow','bow')
-arrows = Item('arrows', 'arrows')
-ham = Item('ham', 'ham')
-spoon = Item('spoon', 'spoon')
-ring = Item('ring with elven writing', 'ring')
+axe = Item('an axe', 'axe')
+key = Item('a key', 'key')
+letter = Item('a letter from Dàin', 'letter')
+moonstone = Item('a moonstone', 'moonstone')
+runepaper = Item('a runepaper', 'runepaper')
+winebottle = Item('a winebottle', 'bottle')
+longbow = Item('a longbow','bow')
+arrows = Item('some arrows', 'arrows')
+ham = Item('a huge, good-looking ham', 'ham')
+spoon = Item('a spoon', 'spoon')
+ring = Item('a ring with elven writing', 'ring')
 beads = Item('some golden beads', 'beads')
 gems = Item('some beautiful gemstones', 'gemstones', 'gems')
-sword = Item('very rusty sword', 'sword')
+sword = Item('a very rusty sword', 'sword')
 
 
 """define characters"""
