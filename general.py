@@ -41,9 +41,23 @@ def look():
 def take(thing):
     obj = current_room.items.take(thing)
     if obj:
-        say('You pick up the %s.' % obj)
+        say('You pick up %s.' % obj)
         inventory.add(obj)
         increaseSteps()
+        if obj == runepaper:
+            global FoundRunepaper
+            FoundRunepaper = True
+        if obj == moonstone:
+            global FoundMoonstone
+            FoundMoonstone = True
+        if obj == key:
+            global FoundKey 
+            FoundKey = True
+        if obj == axe:
+            global FoundAxe
+            FoundAxe = True
+        if obj == sword:
+            """Define the end of the game here"""
     else:
         say('There is/are no %s here.' % thing)
 
@@ -53,7 +67,7 @@ def drop(thing):
     if not obj:
         say('You do not have (a) %s.' % thing)
     else:
-        say('You drop the %s.' % obj)
+        say('You drop %s.' % obj)
         current_room.items.add(obj)
         increaseSteps()
 
@@ -123,9 +137,9 @@ def use(thing):
 """ Story related checkpoints """
 def init_CPs():
     global FoundRunepaper
-    FoundRunepaper = False
-    global FoundMoonstone
-    FoundMoonstone = False
+    FoundRunepaper = False """set to TRUE when the runepaper is taken"""
+    global FoundMoonstone 
+    FoundMoonstone = False """set to TRUE when the moonstone is taken"""
     global CalmDownFundor
     CalmDownFundor = False
     global FundorHasRunepaper
@@ -137,13 +151,13 @@ def init_CPs():
     global GotLocationOfDoor
     GotLocationOfDoor = False
     global FoundAxe
-    FoundAxe = False
+    FoundAxe = False """set to TRUE when the axe is taken"""
     global CupboardDestroyed
     CupboardDestroyed = False
     global LocalizedKey
     LocalizedKey = False
     global FoundKey
-    FoundKey = False
+    FoundKey = False """set to TRUE when the key is taken"""
     global OpenedDoor
     OpenedDoor = False
 """ if you want to set a checkpoint to true, code: 
