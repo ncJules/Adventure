@@ -30,7 +30,7 @@ def look():
     if current_room.items:
         say('You see:')
         for i in current_room.items:
-            say('* A %s' % i)
+            say('* %s' % i)
     if current_room.characters:
         say("There is somebody in this room.")
 
@@ -122,8 +122,30 @@ def use(thing):
 
 """ Story related checkpoints """
 def init_CPs():
-    global CP1
-    CP1 = False
+    global FoundRunepaper
+    FoundRunepaper = False
+    global FoundMoonstone
+    FoundMoonstone = False
+    global CalmDownFundor
+    CalmDownFundor = False
+    global FundorHasRunepaper
+    FundorHasRunepaper = False
+    global FundorHasMoonstone
+    FundorHasMoonstone = False
+    global GotLocationOfKey
+    GotLocationOfKey = False
+    global GotLocationOfDoor
+    GotLocationOfDoor = False
+    global FoundAxe
+    FoundAxe = False
+    global CupboardDestroyed
+    CupboardDestroyed = False
+    global LocalizedKey
+    LocalizedKey = False
+    global FoundKey
+    FoundKey = False
+    global OpenedDoor
+    OpenedDoor = False
 """ if you want to set a checkpoint to true, code: 
     global CP
     CP = True
