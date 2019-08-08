@@ -134,7 +134,32 @@ def use(thing):
         else:
             say("You don't have (a) %s" % thing1)
 
+
+"""Define all the character related stuff"""
+
+@when('talk to PERSON')
+def talk(person):
+    for i in current_room.characters:
+        pers = i
+    if person == 'myself':
+        say("I usually am a fun guy to talk to, but at the moment I am quite tired.")
+    elif current_room.characters:
+        if person == 'dwarf' or person == 'person' or person == pers:
+            if pers == Fundor:
+                say("fundor")
+            if pers == Nadihm:
+                say("nadihm")
+            if pers == Frain:
+                say("frain")
+        else: 
+            say("%s is not here." % person)
+    else:
+        say("There is no one to talk to.")
+        
+
+
 """ Story related checkpoints """
+
 def init_CPs():
     global FoundRunepaper
     FoundRunepaper = False 
