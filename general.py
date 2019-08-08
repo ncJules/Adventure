@@ -137,9 +137,11 @@ def use(thing):
 """ Story related checkpoints """
 def init_CPs():
     global FoundRunepaper
-    FoundRunepaper = False """set to TRUE when the runepaper is taken"""
+    FoundRunepaper = False 
+    """set to TRUE when the runepaper is taken"""
     global FoundMoonstone 
-    FoundMoonstone = False """set to TRUE when the moonstone is taken"""
+    FoundMoonstone = False 
+    """set to TRUE when the moonstone is taken"""
     global CalmDownFundor
     CalmDownFundor = False
     global FundorHasRunepaper
@@ -151,13 +153,15 @@ def init_CPs():
     global GotLocationOfDoor
     GotLocationOfDoor = False
     global FoundAxe
-    FoundAxe = False """set to TRUE when the axe is taken"""
+    FoundAxe = False 
+    """set to TRUE when the axe is taken"""
     global CupboardDestroyed
     CupboardDestroyed = False
     global LocalizedKey
     LocalizedKey = False
     global FoundKey
-    FoundKey = False """set to TRUE when the key is taken"""
+    FoundKey = False 
+    """set to TRUE when the key is taken"""
     global OpenedDoor
     OpenedDoor = False
 """ if you want to set a checkpoint to true, code: 
