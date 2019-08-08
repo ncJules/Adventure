@@ -88,6 +88,25 @@ def check_inventory_for(thing):
     else:
         say('You do not have (a) %s' % thing)
 
+@when('give THING')
+def give(thing):
+    obj = inventory.find(thing)
+    if not obj:
+        say('You have (a) %s' % thing)
+    else:
+        if not current_room.characters:
+            say('There is no one to give it to.')
+        else:
+            increaseSteps()
+            obj = inventory.take(thing)
+            current_room.items.add(obj)
+            for i in current_room.characters:
+                pers = i
+            say('You hand over the %s.' % thing)
+            if thing == 'letter' and pers == 'Fundor':
+                public CalmDownFundor
+                CalmDownFundor = True
+
 @when('use THING')
 def use(thing):
     """first determine if a single item shall be used or is more shall be combined by checking for the word WITH """
@@ -144,6 +163,7 @@ def talk(person):
     if person == 'myself':
         say("I usually am a fun guy to talk to, but at the moment I am quite tired.")
     elif current_room.characters:
+        increaseSteps()
         if person == 'dwarf' or person == 'person' or person == pers:
             if pers == Fundor:
                 if not CalmDownFundor:
@@ -172,7 +192,7 @@ def talk(person):
             say("%s is not here." % person)
     else:
         say("There is no one to talk to.")
-        
+       
 
 """ Story related checkpoints """
 
@@ -185,6 +205,7 @@ def init_CPs():
     """set to TRUE when the moonstone is taken"""
     global CalmDownFundor
     CalmDownFundor = False
+    """ set to true when you give the letter from Dàin to Fundór"""
     global FundorHasRunepaper
     FundorHasRunepaper = False
     global FundorHasMoonstone
