@@ -100,12 +100,11 @@ def give(thing):
             increaseSteps()
             obj = inventory.take(thing)
             current_room.items.add(obj)
-            for i in current_room.characters:
-                pers = i
             say('You hand over the %s.' % thing)
-            if thing == 'letter' and pers == 'Fundor':
-                public CalmDownFundor
+            if (thing == 'letter' and current_room.characters.find('Fundor')):
+                global CalmDownFundor
                 CalmDownFundor = True
+                
 
 @when('use THING')
 def use(thing):
@@ -163,8 +162,8 @@ def talk(person):
     if person == 'myself':
         say("I usually am a fun guy to talk to, but at the moment I am quite tired.")
     elif current_room.characters:
-        increaseSteps()
         if person == 'dwarf' or person == 'person' or person == pers:
+            increaseSteps()
             if pers == Fundor:
                 if not CalmDownFundor:
                     say("I'm loosing my mind in this loneliness! If only I could get a word from the Erebor and my beloved king once again ...")
@@ -230,6 +229,21 @@ def init_CPs():
     global CP
     CP = True
 """
+@when('progress')
+def progress():
+    say("%s" % FoundRunepaper)
+    say("%s" % FoundMoonstone)
+    say("%s" % CalmDownFundor)
+    say("%s" % FundorHasRunepaper)
+    say("%s" % FundorHasMoonstone)
+    say("%s" % GotLocationOfKey)
+    say("%s" % GotLocationOfDoor)
+    say("%s" % FoundAxe)
+    say("%s" % CupboardDestroyed)
+    say("%s" % LocalizedKey)
+    say("%s" % FoundKey)
+    say("%s" % OpenedDoor)
+
 
 
 """ Mostly useless functions """
