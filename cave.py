@@ -11,15 +11,15 @@ key = Item('a key', 'key')
 letter = Item('a letter from Dàin', 'letter')
 moonstone = Item('a moonstone', 'moonstone')
 runepaper = Item('a runepaper', 'runepaper')
-winebottle = Item('a winebottle', 'bottle')
-longbow = Item('a longbow','bow')
+winebottle = Item('a winebottle', 'winebottle', 'bottle')
+longbow = Item('a longbow', 'longbow', 'bow')
 arrows = Item('some arrows', 'arrows')
 ham = Item('a huge, good-looking ham', 'ham')
 spoon = Item('a spoon', 'spoon')
 ring = Item('a ring with elven writing', 'ring')
 beads = Item('some golden beads', 'beads')
 gems = Item('some beautiful gemstones', 'gemstones', 'gems')
-sword = Item('a very rusty sword', 'sword')
+sword = Item('a very rusty sword', 'rusty sword', 'sword')
 
 
 """define characters"""
