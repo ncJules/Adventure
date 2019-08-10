@@ -171,7 +171,7 @@ def talk(person):
                     say("Hello and thank you for showing me the letter from Dàin. It is good to know that we were not forgotten at the kingdom of Erebor.")
                     say("My name is Fundór and I am one of the historians sent to Khazad-dûm to identify the old items found in the mines.")
                     say("As I read in your letter, you are not only searching for survivors but also for items.")
-                    say("If you promise to take me back home to the Erebor, I will be to help you with whatever you may need.")
+                    say("If you promise to take me back home to the Erebor, I will be happy to help you with whatever you may need.")
                 elif (FundorHasMoonstone and not FundorHasRunepaper):
                     say("This gem I rescued from the mines. I found it particularly useful for deciphering runes.")
                 elif (not FundorHasMoonstone and FundorHasRunepaper):
