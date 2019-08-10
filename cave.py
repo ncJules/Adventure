@@ -26,8 +26,8 @@ sword = Item('a very rusty sword', 'rusty sword', 'sword')
 Room.characters = Group()
 
 Nadihm = Character('Nadihm', 'Nadihm')
-Fundor = Character('Fundor', 'Fundor')
-Frain = Character('Frain', 'Frain')
+Fundor = Character('Fundor', 'Fundor', 'Fundór')
+Frain = Character('Frain', 'Frain', 'Fráin')
 
 
 """define the rooms available, their descriptions, contained items, people and connections"""
