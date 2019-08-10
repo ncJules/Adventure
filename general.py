@@ -91,8 +91,10 @@ def check_inventory_for(thing):
 @when('give THING')
 def give(thing):
     obj = inventory.find(thing)
-    if not obj:
-        say('You have (a) %s' % thing)
+    if thing == "hand":
+        say("Nice gesture!")
+    elif not obj:
+        say('You do not have (a) %s' % thing)
     else:
         if not current_room.characters:
             say('There is no one to give it to.')
@@ -162,7 +164,7 @@ def talk(person):
     if person == 'myself':
         say("I usually am a fun guy to talk to, but at the moment I am quite tired.")
     elif current_room.characters:
-        if person == 'dwarf' or person == 'person' or person == pers:
+        if person == 'dwarf' or person == 'person' or current_room.characters.find(person):
             increaseSteps()
             if pers == Fundor:
                 if not CalmDownFundor:
