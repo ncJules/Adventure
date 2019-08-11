@@ -10,7 +10,7 @@ say("I expect you to leave for this quest within the next two weeks. If you are 
 say("Dáin")
 say("King under the Mountain")
 say("")
-say("Following the whishes of your king, you started your journey...")
+say("Following the whishes of your king, you packed your weapons, some supplies and his letter in your bag and you started your big journey...")
 say("")
 say("Following the old elven path in the north you came through mirkwood and took a boat down the Anduin south until you reached the borders of Lórien. There you left the known paths and followed the rim of the forests west until you finally reached the Misty Mountains.")
 say("Two rainy weeks have passed since you arrived at the foot at the mountains. But this morning, the sun finally decided to come out and dry your damp beard. At noon, just when you decided to take a short break in the shadows of an old oak, you heard it. Someone was singing in the far distance. You immediately got up and followed the voice...")
