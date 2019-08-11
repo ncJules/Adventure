@@ -60,8 +60,6 @@ treasure = Room("""You have finally found the treasure room. But unfortunately i
 treasure.items = Bag({sword,})
 
 
-
-
 """ init """
 
 current_room = hall
@@ -69,3 +67,5 @@ current_room = hall
 inventory = Bag({letter,})
 
 UsedSteps = 0
+
+CountVisitsToNadihm = 0
