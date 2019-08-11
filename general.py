@@ -132,8 +132,12 @@ def use(thing):
         obj = inventory.find(thing)
         if obj:
             increaseSteps()
-            if 1==0:
-                """possible actions shall be added here"""
+            if obj == longbow:
+                say("What shall I used it with?")
+            elif obj == ham:
+                say("That was delicious!")
+                inventory.remove(ham)
+                """more possible actions shall be added here"""
             else:
                 RandomNumber = random.randint(1,11)
                 if RandomNumber < 4: 
