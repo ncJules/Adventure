@@ -212,7 +212,12 @@ def talk(person):
                 if CountVisitsToNadihm > 2:
                     say("3")
             if pers == Frain:
-                say("frain")
+                if not GotLocationOfKey:
+                    say("beer!")
+                elif not FoundKey:
+                    say("drink with me!")
+                else:
+                    say("sleep")
         else: 
             say("%s is not here." % person)
     else:
