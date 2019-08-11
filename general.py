@@ -203,7 +203,14 @@ def talk(person):
                     say("... something about bottles...")
                     say("I'm sorry, but can't make more sense of it.")
             if pers == Nadihm:
-                say("nadihm")
+                global CountVisitsToNadihm
+                CountVisitsToNadihm = CountVisitsToNadihm + 1
+                if CountVisitsToNadihm == 1:
+                    say("1")
+                if CountVisitsToNadihm == 2:
+                    say("2")
+                if CountVisitsToNadihm > 2:
+                    say("3")
             if pers == Frain:
                 say("frain")
         else: 
