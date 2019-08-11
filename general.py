@@ -106,6 +106,12 @@ def give(thing):
             if (thing == 'letter' and current_room.characters.find('Fundor')):
                 global CalmDownFundor
                 CalmDownFundor = True
+            if (thing == 'moonstone' and current_room.characters.find('Fundor')):
+                global FundorHasMoonstone
+                FundorHasMoonstone = True
+            if (thing == 'runepaper' and current_room.characters.find('Fundor')):
+                global FundorHasRunepaper
+                FundorHasRunepaper = True           
                 
 
 @when('use THING')
@@ -171,7 +177,7 @@ def talk(person):
                     say("I'm loosing my mind in this loneliness! If only I could get a word from the Erebor and my beloved king once again ...")
                 elif not (FundorHasMoonstone or FundorHasRunepaper):
                     say("Hello and thank you for showing me the letter from Dàin. It is good to know that we were not forgotten at the kingdom of Erebor.")
-                    say("My name is Fundór and I am one of the historians sent to Khazad-dûm to identify the old items found in the mines.")
+                    say("My name is Fundór and I am one of the historians sent to Khazad-dûm. I specialised on old dwarfen runes but my task was mainly to identify the old items found in the mines.  ")
                     say("As I read in your letter, you are not only searching for survivors but also for items.")
                     say("If you promise to take me back home to the Erebor, I will be happy to help you with whatever you may need.")
                 elif (FundorHasMoonstone and not FundorHasRunepaper):
