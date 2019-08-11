@@ -36,30 +36,41 @@ def look():
 
 
 """Define all the item related stuff"""
+def inventory_is_full():
+    number_of_items = 0
+    for i in inventory:
+        number_of_items = number_of_items + 1
+    if number_of_items > 6:
+        return True
+    else:
+        return False
 
 @when('take THING')
 def take(thing):
-    obj = current_room.items.take(thing)
-    if obj:
-        say('You pick up %s.' % obj)
-        inventory.add(obj)
-        increaseSteps()
-        if obj == runepaper:
-            global FoundRunepaper
-            FoundRunepaper = True
-        if obj == moonstone:
-            global FoundMoonstone
-            FoundMoonstone = True
-        if obj == key:
-            global FoundKey 
-            FoundKey = True
-        if obj == axe:
-            global FoundAxe
-            FoundAxe = True
-        if obj == sword:
-            """Define the end of the game here"""
+    if inventory_is_full():
+        say("Your bag is full, you can't carry anymore!")
     else:
-        say('There is/are no %s here.' % thing)
+        obj = current_room.items.take(thing)
+        if obj:
+            say('You pick up %s.' % obj)
+            inventory.add(obj)
+            increaseSteps()
+            if obj == runepaper:
+                global FoundRunepaper
+                FoundRunepaper = True
+            if obj == moonstone:
+                global FoundMoonstone
+                FoundMoonstone = True
+            if obj == key:
+                global FoundKey 
+                FoundKey = True
+            if obj == axe:
+                global FoundAxe
+                FoundAxe = True
+            if obj == sword:
+                """Define the end of the game here"""
+        else:
+            say('There is/are no %s here.' % thing)
 
 @when('drop THING')
 def drop(thing):
