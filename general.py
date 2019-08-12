@@ -61,6 +61,9 @@ def take(thing):
             if obj == moonstone:
                 global FoundMoonstone
                 FoundMoonstone = True
+            if obj == winebottle and GotLocationOfKey:
+                global LocalisedKey
+                LocalisedKey = True
             if obj == key:
                 global FoundKey 
                 FoundKey = True
@@ -220,10 +223,11 @@ def talk(person):
                 if CountVisitsToNadihm > 2:
                     say("3")
             if pers == Frain:
-                if not GotLocationOfKey:
+                if not (LocalisedKey or inventory.find(winebottle)):
                     say("beer!")
                 elif not FoundKey:
                     say("drink with me!")
+                    current_room.items.add(key)
                 else:
                     say("sleep")
         else: 
@@ -263,6 +267,7 @@ def init_CPs():
     CupboardDestroyed = False
     global LocalisedKey
     LocalisedKey = False
+    """ Set"""
     global FoundKey
     FoundKey = False 
     """set to TRUE when the key is taken"""
