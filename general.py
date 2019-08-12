@@ -206,6 +206,10 @@ def talk(person):
                     say("This door is locked and the key is hidden within this cave as well. But the instructions on how to find it are very vague.")
                     say("... something about bottles...")
                     say("I'm sorry, but can't make more sense of it.")
+                    global GotLocationOfKey
+                    GotLocationOfKey = True
+                    global GotLocationOfDoor
+                    GotLocationOfDoor = True
             if pers == Nadihm:
                 global CountVisitsToNadihm
                 CountVisitsToNadihm = CountVisitsToNadihm + 1
@@ -239,22 +243,26 @@ def init_CPs():
     """set to TRUE when the moonstone is taken"""
     global CalmDownFundor
     CalmDownFundor = False
-    """ set to true when you give the letter from Dàin to Fundór"""
+    """set to true when you give the letter from Dàin to Fundór"""
     global FundorHasRunepaper
     FundorHasRunepaper = False
+    """set to true as soon as the runepaper is given to Fundór"""
     global FundorHasMoonstone
     FundorHasMoonstone = False
+    """set to true as soon as the moonstone is given to Fundór"""
     global GotLocationOfKey
     GotLocationOfKey = False
+    """set to true after Fundór has deciphered the runepaper"""
     global GotLocationOfDoor
     GotLocationOfDoor = False
+    """set to true after Fundór has deciphered the runepaper"""
     global FoundAxe
     FoundAxe = False 
     """set to TRUE when the axe is taken"""
     global CupboardDestroyed
     CupboardDestroyed = False
-    global LocalizedKey
-    LocalizedKey = False
+    global LocalisedKey
+    LocalisedKey = False
     global FoundKey
     FoundKey = False 
     """set to TRUE when the key is taken"""
@@ -275,7 +283,7 @@ def progress():
     say("%s" % GotLocationOfDoor)
     say("%s" % FoundAxe)
     say("%s" % CupboardDestroyed)
-    say("%s" % LocalizedKey)
+    say("%s" % LocalisedKey)
     say("%s" % FoundKey)
     say("%s" % OpenedDoor)
 
