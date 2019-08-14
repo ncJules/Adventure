@@ -34,6 +34,62 @@ def look():
     if current_room.characters:
         say("There is somebody in this room.")
 
+        """ Story related checkpoints """
+
+def init_CPs():
+    global FoundRunepaper
+    FoundRunepaper = False 
+    """set to TRUE when the runepaper is taken"""
+    global FoundMoonstone 
+    FoundMoonstone = False 
+    """set to TRUE when the moonstone is taken"""
+    global CalmDownFundor
+    CalmDownFundor = False
+    """set to true when you give the letter from Dàin to Fundór"""
+    global FundorHasRunepaper
+    FundorHasRunepaper = False
+    """set to true as soon as the runepaper is given to Fundór"""
+    global FundorHasMoonstone
+    FundorHasMoonstone = False
+    """set to true as soon as the moonstone is given to Fundór"""
+    global GotLocationOfKey
+    GotLocationOfKey = False
+    """set to true after Fundór has deciphered the runepaper"""
+    global GotLocationOfDoor
+    GotLocationOfDoor = False
+    """set to true after Fundór has deciphered the runepaper"""
+    global FoundAxe
+    FoundAxe = False 
+    """set to TRUE when the axe is taken"""
+    global CupboardDestroyed
+    CupboardDestroyed = False
+    global LocalisedKey
+    LocalisedKey = False
+    """ Set"""
+    global FoundKey
+    FoundKey = False 
+    """set to TRUE when the key is taken"""
+    global OpenedDoor
+    OpenedDoor = False
+    """ if you want to set a checkpoint to true, code: 
+        global CP
+        CP = True
+    """
+
+@when('progress')
+def progress():
+    say("%s" % FoundRunepaper)
+    say("%s" % FoundMoonstone)
+    say("%s" % CalmDownFundor)
+    say("%s" % FundorHasRunepaper)
+    say("%s" % FundorHasMoonstone)
+    say("%s" % GotLocationOfKey)
+    say("%s" % GotLocationOfDoor)
+    say("%s" % FoundAxe)
+    say("%s" % CupboardDestroyed)
+    say("%s" % LocalisedKey)
+    say("%s" % FoundKey)
+    say("%s" % OpenedDoor)
 
 """Define all the item related stuff"""
 def inventory_is_full():
@@ -173,8 +229,18 @@ def use(thing):
                         say("I would love to, but then I would have to kill you...")
                     else:
                         say("But I really don't wanna...")
+            elif obj1 == axe and thing2 == "cupboard" and current_room == dining and not CupboardDestroyed:
+                say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
+                say("After you have fnished this marvellous job, you see a small old door.")
+                """global CupboardDestroyed
+                CupboardDestroyed = True"""
             else:
                 say("You don't have (a) %s" % thing2)
+        elif thing1 == axe and obj2 == "cupboard" and current_room == dining and not CupboardDestroyed:
+            say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
+            say("After you have fnished this marvellous job, you see a small old door.")
+            """global CupboardDestroyed
+            CupboardDestroyed = True"""
         else:
             say("You don't have (a) %s" % thing1)
 
@@ -235,64 +301,6 @@ def talk(person):
     else:
         say("There is no one to talk to.")
        
-
-""" Story related checkpoints """
-
-def init_CPs():
-    global FoundRunepaper
-    FoundRunepaper = False 
-    """set to TRUE when the runepaper is taken"""
-    global FoundMoonstone 
-    FoundMoonstone = False 
-    """set to TRUE when the moonstone is taken"""
-    global CalmDownFundor
-    CalmDownFundor = False
-    """set to true when you give the letter from Dàin to Fundór"""
-    global FundorHasRunepaper
-    FundorHasRunepaper = False
-    """set to true as soon as the runepaper is given to Fundór"""
-    global FundorHasMoonstone
-    FundorHasMoonstone = False
-    """set to true as soon as the moonstone is given to Fundór"""
-    global GotLocationOfKey
-    GotLocationOfKey = False
-    """set to true after Fundór has deciphered the runepaper"""
-    global GotLocationOfDoor
-    GotLocationOfDoor = False
-    """set to true after Fundór has deciphered the runepaper"""
-    global FoundAxe
-    FoundAxe = False 
-    """set to TRUE when the axe is taken"""
-    global CupboardDestroyed
-    CupboardDestroyed = False
-    global LocalisedKey
-    LocalisedKey = False
-    """ Set"""
-    global FoundKey
-    FoundKey = False 
-    """set to TRUE when the key is taken"""
-    global OpenedDoor
-    OpenedDoor = False
-""" if you want to set a checkpoint to true, code: 
-    global CP
-    CP = True
-"""
-@when('progress')
-def progress():
-    say("%s" % FoundRunepaper)
-    say("%s" % FoundMoonstone)
-    say("%s" % CalmDownFundor)
-    say("%s" % FundorHasRunepaper)
-    say("%s" % FundorHasMoonstone)
-    say("%s" % GotLocationOfKey)
-    say("%s" % GotLocationOfDoor)
-    say("%s" % FoundAxe)
-    say("%s" % CupboardDestroyed)
-    say("%s" % LocalisedKey)
-    say("%s" % FoundKey)
-    say("%s" % OpenedDoor)
-
-
 
 """ Mostly useless functions """
 
