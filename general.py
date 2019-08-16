@@ -216,6 +216,7 @@ def use(thing):
         obj1 = inventory.find(thing1)
         obj2 = inventory.find(thing2)
         if obj1:
+            global CupboardDestroyed
             if obj2: 
                 increaseSteps()
                 if 1==0:
@@ -233,19 +234,21 @@ def use(thing):
             elif obj1 == axe and thing2 == "cupboard" and current_room == dining and not CupboardDestroyed:
                 say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
                 say("After you have fnished this marvellous job, you see a small old door.")
-                """ global CupboardDestroyed
-                CupboardDestroyed = True"""
-                treasure = dining.east
+                CupboardDestroyed = True
+                if FoundKey:
+                    treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
+                    treasure.items = Bag({sword,})
             else:
                 say("You don't have (a) %s" % thing2)
-        elif thing1 == axe and obj2 == "cupboard" and current_room == dining and not CupboardDestroyed:
+        elif thing1 == "cupboard" and obj2 == axe and current_room == dining and not CupboardDestroyed:
             say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
             say("After you have fnished this marvellous job, you see a small old door.")
-            """ global CupboardDestroyed
-            CupboardDestroyed = True"""
+            CupboardDestroyed = True
+            if FoundKey:
+                treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
+                treasure.items = Bag({sword,})
         else:
             say("You don't have (a) %s" % thing1)
-
 
 """Define all the character related stuff"""
 
