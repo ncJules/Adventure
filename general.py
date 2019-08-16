@@ -122,9 +122,12 @@ def take(thing):
             if obj == moonstone:
                 global FoundMoonstone
                 FoundMoonstone = True
-            if obj == winebottle and GotLocationOfKey:
-                global LocalisedKey
-                LocalisedKey = True
+            if obj == winebottle:
+                global FoundBottle
+                FoundBottle = True            
+                if GotLocationOfKey:
+                    global LocalisedKey
+                    LocalisedKey = True
             if obj == key:
                 global FoundKey 
                 FoundKey = True
@@ -189,9 +192,11 @@ def give(thing):
                 FundorHasMoonstone = True
             if (thing == 'runepaper' and current_room.characters.find('Fundor')):
                 global FundorHasRunepaper
-                FundorHasRunepaper = True           
+                FundorHasRunepaper = True
+            if (thing == 'bottle' and current_room.characters.find('Frain')):
+                current_room.items.add(key)
+                           
                 
-
 @when('use THING')
 def use(thing):
     """first determine if a single item shall be used or is more shall be combined by checking for the word WITH """
@@ -289,8 +294,9 @@ def talk(person):
                     say("I'm sorry, but can't make more sense of it.")
                     global GotLocationOfKey
                     GotLocationOfKey = True
-                    if inventory.find(winebottle):
-
+                    if FoundBottle:
+                        global LocalisedKey
+                        LocalisedKey = True
                     global GotLocationOfDoor
                     GotLocationOfDoor = True
             if pers == Nadihm:
@@ -305,11 +311,8 @@ def talk(person):
             if pers == Frain:
                 if not LocalisedKey:
                     say("beer!")
-                elif LocalisedKey and inventory.find(bottle):
-                    say("...")
                 elif not FoundKey:
-                    say("drink with me!")
-                    current_room.items.add(key)
+                    say("Nice, bottle...drink with me!")
                 else:
                     say("sleep")
         else: 
