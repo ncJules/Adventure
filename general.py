@@ -63,7 +63,8 @@ def init_CPs():
         CP = True
     """
 
-@when('progress')
+""" for development only """
+"""@when('progress')
 def progress():
     say("%s" % CalmDownFundor)
     say("%s" % FundorHasRunepaper)
@@ -71,7 +72,7 @@ def progress():
     say("%s" % GotLocationOfKey)
     say("%s" % GotLocationOfDoor)
     say("%s" % CupboardDestroyed)
-    say("%s" % LocalisedKey)
+    say("%s" % LocalisedKey)"""
 
 """Define all the item related stuff"""
 def inventory_is_full():
@@ -107,7 +108,7 @@ def take(thing):
                 say("")
                 say("You are all going to be home soon...")
                 say("")
-                say("You have finished your adventure in %i steps." % steps)
+                say("You have finished your adventure in %i steps." % UsedSteps)
                 quit()
         else:
             say('There is/are no %s here.' % thing)
