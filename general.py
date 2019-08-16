@@ -106,6 +106,8 @@ def take(thing):
                 say("Happy to have found the last survivors and your nephew amongst them, you decide that this sword with all the other things you've found in the cave will be enough for delivering to Dáin and you tell the others to pack there things.")
                 say("")
                 say("You are all going to be home soon...")
+                say("")
+                say("You have finished your adventure in %i steps." % steps)
                 quit()
         else:
             say('There is/are no %s here.' % thing)
@@ -263,7 +265,7 @@ def talk(person):
                     say("This gem I rescued from the mines. I found it particularly useful for deciphering runes.")
                 elif (not FundorHasMoonstone and FundorHasRunepaper and current_room.items.find('runepaper')):
                     say("These runes can only be read in the moonlight or by looking through something that has the same magic.")
-                elif (FundorHasMoonstone and current_room.items.find('moonstone') and FundorHasRunepaper and current_room.items.find('runepaper'):
+                elif (FundorHasMoonstone and current_room.items.find('moonstone') and FundorHasRunepaper and current_room.items.find('runepaper')):
                     say("Ah, let's see... what do we have here.... just a moment...")
                     say("...")
                     say("There you go: There is a hidden door within this cave. Its entry can be found at one of the eastern walls.")
@@ -278,7 +280,7 @@ def talk(person):
                     global GotLocationOfDoor
                     GotLocationOfDoor = True
                 else:
-                    say("Fúndor is humming quietly...")
+                    say("Fundór is humming quietly...")
             if pers == Nadihm:
                 global CountVisitsToNadihm
                 CountVisitsToNadihm = CountVisitsToNadihm + 1
