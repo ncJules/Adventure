@@ -213,7 +213,7 @@ def use(thing):
             elif obj == ham:
                 say("That was delicious!")
                 inventory.remove(ham)
-            elif obj == bottle:
+            elif obj == winebottle:
                 say("I don't drink alone!")
             elif obj == ring:
                 say("An ELVEN ring? Are you serious?")
