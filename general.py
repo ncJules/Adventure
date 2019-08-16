@@ -196,6 +196,8 @@ def give(thing):
                 global FundorHasRunepaper
                 FundorHasRunepaper = True
             if (thing == 'bottle' and current_room.characters.find('Frain')):
+                say("As soon as you hand the bottle to the old dwarf he empties it at an impressive paste. To be sure that it's really empty, he turns it upside down.")
+                say("You hear a soft CLONK as a small key drops on to the table in front of you.")
                 current_room.items.add(key)
                            
                 
