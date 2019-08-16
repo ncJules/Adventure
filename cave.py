@@ -56,10 +56,6 @@ supplyII.items = Bag({winebottle,ham})
 sleeping = kitchen.west = Room("""You are small room containing three sleeping arrangements. You don't want to go your fellow dwarfs personal belongings, but something seems to be placed there just for you...""")
 sleeping.items = Bag({runepaper,})
 
-treasure = Room("""You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
-treasure.items = Bag({sword,})
-
-
 """ init """
 
 current_room = hall
