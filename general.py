@@ -292,11 +292,11 @@ def talk(person):
                     say("3")
             if pers == Frain:
                 if not LocalisedKey:
-                    say("beer!")
+                    say("I am trying not to forget the taste of a good drink...")
                 elif not bool(inventory.find('key')):
-                    say("Nice, bottle...drink with me!")
+                    say("Nice bottle of wine that you have there. How about sharing a drink?")
                 else:
-                    say("sleep")
+                    say("Fráin is sleeping. Don't you dare waking him up after he had the whole bottle of wine!")
         else: 
             say("%s is not here." % person)
     else:
