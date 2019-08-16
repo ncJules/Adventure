@@ -73,8 +73,7 @@ def init_CPs():
     global FoundKey
     FoundKey = False 
     """set to TRUE when the key is taken"""
-    global OpenedDoor
-    OpenedDoor = False
+
     """ if you want to set a checkpoint to true, code: 
         global CP
         CP = True
@@ -94,7 +93,6 @@ def progress():
     say("%s" % FoundBottle)
     say("%s" % LocalisedKey)
     say("%s" % FoundKey)
-    say("%s" % OpenedDoor)
 
 """Define all the item related stuff"""
 def inventory_is_full():
@@ -138,7 +136,11 @@ def take(thing):
                 global FoundAxe
                 FoundAxe = True
             if obj == sword:
-                """Define the end of the game here"""
+                say("Even though the sword is very rusty, you can still see that it's old with dwarfen runes on it. It's most probably worth something!")
+                say("Happy to have found the last survivors and your nephew amongst them, you decide that this sword will be enough for delivering to Dáin and you tell the others to pack there things.")
+                say("")
+                say("You are all going to be home soon...")
+                quit()
         else:
             say('There is/are no %s here.' % thing)
 
