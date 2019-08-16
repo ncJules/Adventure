@@ -124,6 +124,9 @@ def take(thing):
             if obj == key:
                 global FoundKey 
                 FoundKey = True
+                if CupboardDestroyed:
+                    treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
+                    treasure.items = Bag({sword,})
             if obj == axe:
                 global FoundAxe
                 FoundAxe = True
