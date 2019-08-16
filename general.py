@@ -249,7 +249,9 @@ def use(thing):
                         say("But I really don't wanna...")
             elif obj1 == axe and thing2 == "cupboard" and current_room == dining and not CupboardDestroyed:
                 say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
-                say("After you have fnished this marvellous job, you see a small old door.")
+                say("After you have finished this marvellous job, you see a small old door.")
+                if not FoundKey:
+                    say("If only you had a key for it...")
                 CupboardDestroyed = True
                 if FoundKey:
                     treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
@@ -258,7 +260,9 @@ def use(thing):
                 say("You don't have (a) %s" % thing2)
         elif thing1 == "cupboard" and obj2 == axe and current_room == dining and not CupboardDestroyed:
             say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
-            say("After you have fnished this marvellous job, you see a small old door.")
+            say("After you have finished this marvellous job, you see a small old door.")
+            if not FoundKey:
+                    say("If only you had a key for it...")
             CupboardDestroyed = True
             if FoundKey:
                 treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
