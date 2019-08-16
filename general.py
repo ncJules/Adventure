@@ -64,6 +64,9 @@ def init_CPs():
     global CupboardDestroyed
     CupboardDestroyed = False
     """ is set to true after the cupboard has been chopped down with the axe """
+    global FoundBottle
+    FoundBottle = False 
+    """set to TRUE when the winebottle is taken"""
     global LocalisedKey
     LocalisedKey = False
     """ Set"""
@@ -88,6 +91,7 @@ def progress():
     say("%s" % GotLocationOfDoor)
     say("%s" % FoundAxe)
     say("%s" % CupboardDestroyed)
+    say("%s" % FoundBottle)
     say("%s" % LocalisedKey)
     say("%s" % FoundKey)
     say("%s" % OpenedDoor)
@@ -285,6 +289,8 @@ def talk(person):
                     say("I'm sorry, but can't make more sense of it.")
                     global GotLocationOfKey
                     GotLocationOfKey = True
+                    if inventory.find(winebottle):
+
                     global GotLocationOfDoor
                     GotLocationOfDoor = True
             if pers == Nadihm:
@@ -297,8 +303,10 @@ def talk(person):
                 if CountVisitsToNadihm > 2:
                     say("3")
             if pers == Frain:
-                if not (LocalisedKey or inventory.find(winebottle)):
+                if not LocalisedKey:
                     say("beer!")
+                elif LocalisedKey and inventory.find(bottle):
+                    say("...")
                 elif not FoundKey:
                     say("drink with me!")
                     current_room.items.add(key)
