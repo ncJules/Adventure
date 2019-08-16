@@ -63,6 +63,7 @@ def init_CPs():
     """set to TRUE when the axe is taken"""
     global CupboardDestroyed
     CupboardDestroyed = False
+    """ is set to true after the cupboard has been chopped down with the axe """
     global LocalisedKey
     LocalisedKey = False
     """ Set"""
@@ -232,15 +233,16 @@ def use(thing):
             elif obj1 == axe and thing2 == "cupboard" and current_room == dining and not CupboardDestroyed:
                 say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
                 say("After you have fnished this marvellous job, you see a small old door.")
-                global CupboardDestroyed
-                CupboardDestroyed = True
+                """ global CupboardDestroyed
+                CupboardDestroyed = True"""
+                treasure = dining.east
             else:
                 say("You don't have (a) %s" % thing2)
         elif thing1 == axe and obj2 == "cupboard" and current_room == dining and not CupboardDestroyed:
             say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
             say("After you have fnished this marvellous job, you see a small old door.")
-            global CupboardDestroyed
-            CupboardDestroyed = True
+            """ global CupboardDestroyed
+            CupboardDestroyed = True"""
         else:
             say("You don't have (a) %s" % thing1)
 
