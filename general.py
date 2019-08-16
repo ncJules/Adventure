@@ -286,11 +286,20 @@ def talk(person):
                 global CountVisitsToNadihm
                 CountVisitsToNadihm = CountVisitsToNadihm + 1
                 if CountVisitsToNadihm == 1:
-                    say("1")
+                    say("Uncle... uncle Thrablin... is it really you?")
+                    say("...")
+                    say("I am so happy to see you! Fúndor, Fráin and I are the only survivors of the mines of Khazad-dûm. We were lucky enough to be hunting in the woods while the attack happened.")
+                    say("We heard the attack from the distance and rushed home. But when we came back, our kingdom was gone and all our fellow dwarfs were dead.")
+                    say("...")
+                    say("I never dared trying to make our way home. But now you bring us new hope!")
+                    say("")
+                    say("Happy to see your nephew alive and well, you promise to take him and his fellows home to the Erebor.")
                 if CountVisitsToNadihm == 2:
-                    say("2")
+                    say("Fráin lost all his brothers at the day of the attack. Since then, he keeps staring at the empty bottles since there is nothing left to drink.")
+                    say("Fundór has always been kind of special as all scientists are. Back in the days before the attack he never stopped chattering abou his ancient runes. Nowadays, he just won't stop singing.")
+                    say("...")
                 if CountVisitsToNadihm > 2:
-                    say("3")
+                    say("Please, take us home!")
             if pers == Frain:
                 if not LocalisedKey:
                     say("I am trying not to forget the taste of a good drink...")
