@@ -283,7 +283,7 @@ def talk(person):
     if person == 'myself':
         say("I usually am a fun guy to talk to, but at the moment I am quite tired.")
     elif current_room.characters:
-        if person == 'dwarf' or person == 'person' or current_room.characters.find(person):
+        if person == 'dwarf' or person == 'person' or person == 'somebody' or current_room.characters.find(person):
             increaseSteps()
             if pers == Fundor:
                 if not CalmDownFundor:
