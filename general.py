@@ -37,12 +37,6 @@ def look():
         """ Story related checkpoints """
 
 def init_CPs():
-    global FoundRunepaper
-    FoundRunepaper = False 
-    """set to TRUE when the runepaper is taken"""
-    global FoundMoonstone 
-    FoundMoonstone = False 
-    """set to TRUE when the moonstone is taken"""
     global CalmDownFundor
     CalmDownFundor = False
     """set to true when you give the letter from Dàin to Fundór"""
@@ -58,22 +52,12 @@ def init_CPs():
     global GotLocationOfDoor
     GotLocationOfDoor = False
     """set to true after Fundór has deciphered the runepaper"""
-    global FoundAxe
-    FoundAxe = False 
-    """set to TRUE when the axe is taken"""
     global CupboardDestroyed
     CupboardDestroyed = False
     """ is set to true after the cupboard has been chopped down with the axe """
-    global FoundBottle
-    FoundBottle = False 
-    """set to TRUE when the winebottle is taken"""
     global LocalisedKey
     LocalisedKey = False
-    """ Set"""
-    global FoundKey
-    FoundKey = False 
-    """set to TRUE when the key is taken"""
-
+    """ Set to TRUE when you have the bottle and you know that the key is inside"""
     """ if you want to set a checkpoint to true, code: 
         global CP
         CP = True
@@ -81,18 +65,13 @@ def init_CPs():
 
 @when('progress')
 def progress():
-    say("%s" % FoundRunepaper)
-    say("%s" % FoundMoonstone)
     say("%s" % CalmDownFundor)
     say("%s" % FundorHasRunepaper)
     say("%s" % FundorHasMoonstone)
     say("%s" % GotLocationOfKey)
     say("%s" % GotLocationOfDoor)
-    say("%s" % FoundAxe)
     say("%s" % CupboardDestroyed)
-    say("%s" % FoundBottle)
     say("%s" % LocalisedKey)
-    say("%s" % FoundKey)
 
 """Define all the item related stuff"""
 def inventory_is_full():
@@ -114,27 +93,14 @@ def take(thing):
             say('You pick up %s.' % obj)
             inventory.add(obj)
             increaseSteps()
-            if obj == runepaper:
-                global FoundRunepaper
-                FoundRunepaper = True
-            if obj == moonstone:
-                global FoundMoonstone
-                FoundMoonstone = True
-            if obj == winebottle:
-                global FoundBottle
-                FoundBottle = True            
+            if obj == winebottle:          
                 if GotLocationOfKey:
                     global LocalisedKey
                     LocalisedKey = True
             if obj == key:
-                global FoundKey 
-                FoundKey = True
                 if CupboardDestroyed:
                     treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
                     treasure.items = Bag({sword,})
-            if obj == axe:
-                global FoundAxe
-                FoundAxe = True
             if obj == sword:
                 say("Even though the sword is very rusty, you can still see that it's old with dwarfen runes on it. It's most probably worth something!")
                 say("Happy to have found the last survivors and your nephew amongst them, you decide that this sword with all the other things you've found in the cave will be enough for delivering to Dáin and you tell the others to pack there things.")
@@ -254,10 +220,10 @@ def use(thing):
             elif obj1 == axe and thing2 == "cupboard" and current_room == dining and not CupboardDestroyed:
                 say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
                 say("After you have finished this marvellous job, you see a small old door.")
-                if not FoundKey:
+                if not bool(inventory.find('key')):
                     say("If only you had a key for it...")
                 CupboardDestroyed = True
-                if FoundKey:
+                if bool(inventory.find('key')):
                     treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
                     treasure.items = Bag({sword,})
             else:
@@ -265,10 +231,10 @@ def use(thing):
         elif thing1 == "cupboard" and obj2 == axe and current_room == dining and not CupboardDestroyed:
             say("You chop the cupboard until there are only small pieces left. It feels good having something to do with your hands.")
             say("After you have finished this marvellous job, you see a small old door.")
-            if not FoundKey:
+            if not bool(inventory.find('key')):
                     say("If only you had a key for it...")
             CupboardDestroyed = True
-            if FoundKey:
+            if bool(inventory.find('key')):
                 treasure = dining.east = Room("""The key fits inside the small lock... You have finally found the treasure room. But unfortunately it has not been used for a very long time - there's not much to be found.""")
                 treasure.items = Bag({sword,})
         else:
@@ -306,7 +272,7 @@ def talk(person):
                     say("I'm sorry, but can't make more sense of it.")
                     global GotLocationOfKey
                     GotLocationOfKey = True
-                    if FoundBottle:
+                    if bool(inventory.find('bottle')):
                         global LocalisedKey
                         LocalisedKey = True
                     global GotLocationOfDoor
@@ -323,7 +289,7 @@ def talk(person):
             if pers == Frain:
                 if not LocalisedKey:
                     say("beer!")
-                elif not FoundKey:
+                elif not bool(inventory.find('key')):
                     say("Nice, bottle...drink with me!")
                 else:
                     say("sleep")
