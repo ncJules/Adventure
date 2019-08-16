@@ -137,7 +137,7 @@ def take(thing):
                 FoundAxe = True
             if obj == sword:
                 say("Even though the sword is very rusty, you can still see that it's old with dwarfen runes on it. It's most probably worth something!")
-                say("Happy to have found the last survivors and your nephew amongst them, you decide that this sword will be enough for delivering to Dáin and you tell the others to pack there things.")
+                say("Happy to have found the last survivors and your nephew amongst them, you decide that this sword with all the other things you've found in the cave will be enough for delivering to Dáin and you tell the others to pack there things.")
                 say("")
                 say("You are all going to be home soon...")
                 quit()
@@ -208,11 +208,15 @@ def use(thing):
         obj = inventory.find(thing)
         if obj:
             increaseSteps()
-            if obj == longbow:
+            if obj == longbow or obj == axe:
                 say("What shall I used it with?")
             elif obj == ham:
                 say("That was delicious!")
                 inventory.remove(ham)
+            elif obj == bottle:
+                say("I don't drink alone!")
+            elif obj == ring:
+                say("An ELVEN ring? Are you serious?")
                 """more possible actions shall be added here"""
             else:
                 RandomNumber = random.randint(1,11)
