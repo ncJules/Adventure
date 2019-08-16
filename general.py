@@ -259,11 +259,11 @@ def talk(person):
                     say("My name is Fundór and I am one of the historians sent to Khazad-dûm. I specialised on old dwarfen runes but my task was mainly to identify the old items found in the mines.  ")
                     say("As I read in your letter, you are not only searching for survivors but also for items.")
                     say("If you promise to take me back home to the Erebor, I will be happy to help you with whatever you may need.")
-                elif (FundorHasMoonstone and not FundorHasRunepaper):
+                elif (FundorHasMoonstone and current_room.items.find('moonstone') and not FundorHasRunepaper):
                     say("This gem I rescued from the mines. I found it particularly useful for deciphering runes.")
-                elif (not FundorHasMoonstone and FundorHasRunepaper):
+                elif (not FundorHasMoonstone and FundorHasRunepaper and current_room.items.find('runepaper')):
                     say("These runes can only be read in the moonlight or by looking through something that has the same magic.")
-                else:
+                elif (FundorHasMoonstone and current_room.items.find('moonstone') and FundorHasRunepaper and current_room.items.find('runepaper'):
                     say("Ah, let's see... what do we have here.... just a moment...")
                     say("...")
                     say("There you go: There is a hidden door within this cave. Its entry can be found at one of the eastern walls.")
@@ -277,6 +277,8 @@ def talk(person):
                         LocalisedKey = True
                     global GotLocationOfDoor
                     GotLocationOfDoor = True
+                else:
+                    say("Fúndor is humming quietly...")
             if pers == Nadihm:
                 global CountVisitsToNadihm
                 CountVisitsToNadihm = CountVisitsToNadihm + 1
