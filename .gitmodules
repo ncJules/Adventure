@@ -1,0 +1,3 @@
+[submodule "adventurelib"]
+	path = adventurelib
+	url = git://github.com/lordmauve/adventurelib
