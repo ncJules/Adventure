@@ -268,9 +268,10 @@ class Bag(set):
         obj = self.get_random()
         if obj is not None:
             self.remove(obj)
-        return obj
+        return obj    
 
-""" This class was added by Jule"""
+        
+""" This class was added by ncJules"""
 class Character:
     """A generic character object that can be referred to by a number of names."""
 
@@ -290,7 +291,7 @@ class Character:
     def __str__(self):
         return self.name
 
-""" This class was added by Jule"""
+""" This class was added by ncJules"""
 class Group(set):
     """A collection of Characters"""
     def find(self, name):
