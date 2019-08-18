@@ -40,10 +40,10 @@ living = hall.north = Room("""You are in room which seems to be used as living r
 living.characters = Group({Nadihm,})
 living.items = Bag({arrows,})
 
-supplyI = hall.east = Room("""You are in supply room containing tools and other useful stuff.""")
+supplyI = hall.east = Room("""You are in a supply room containing tools and other useful stuff.""")
 supplyI.items = Bag({axe,})
 
-dining = living.east = Room("""You are in the dining room. This never seems to have been used, but you see a big bowl with some small treasures standing on a big cupboard at the east wall.""")
+dining = living.east = Room("""You are in the dining room. This never seems to have been used, but you see a big bowl with some small treasures standing on a big cupboard at the eastern wall.""")
 dining.items = Bag({ring, moonstone, beads, gems})
 
 kitchen = dining.north = Room("""You are in the kitchen.""")
@@ -53,7 +53,7 @@ kitchen.items = Bag({spoon,})
 supplyII = kitchen.east = Room("""You are in a supply room with food and drinks. Most things in here you would need to be very desperate to eat, but surely something useful can be found here.""")
 supplyII.items = Bag({winebottle,ham})
 
-sleeping = kitchen.west = Room("""You are small room containing three sleeping arrangements. You don't want to go your fellow dwarfs personal belongings, but something seems to be placed there just for you...""")
+sleeping = kitchen.west = Room("""You are in a small room containing three sleeping arrangements. You don't want to go your fellow dwarfs' personal belongings, but something seems to be placed here just for you...""")
 sleeping.items = Bag({runepaper,})
 
 """ init """
