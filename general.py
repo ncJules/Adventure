@@ -272,7 +272,7 @@ def talk(person):
                     say("There you go: There is a hidden door within this cave. Its entry can be found at one of the eastern walls.")
                     say("This door is locked and the key is hidden within this cave as well. But the instructions on how to find it are very vague.")
                     say("... something about bottles...")
-                    say("I'm sorry, but can't make more sense of it.")
+                    say("I'm sorry, but I can't make more sense of it.")
                     global GotLocationOfKey
                     GotLocationOfKey = True
                     if bool(inventory.find('bottle')):
@@ -291,12 +291,12 @@ def talk(person):
                     say("I am so happy to see you! Fúndor, Fráin and I are the only survivors of the mines of Khazad-dûm. We were lucky enough to be hunting in the woods while the attack happened.")
                     say("We heard the attack from the distance and rushed home. But when we came back, our kingdom was gone and all our fellow dwarfs were dead.")
                     say("...")
-                    say("I never dared trying to make our way home. But now you bring us new hope!")
+                    say("I never dared trying to make my way home. But now you bring us new hope!")
                     say("")
                     say("Happy to see your nephew alive and well, you promise to take him and his fellows home to the Erebor.")
                 if CountVisitsToNadihm == 2:
                     say("Fráin lost all his brothers at the day of the attack. Since then, he keeps staring at the empty bottles since there is nothing left to drink.")
-                    say("Fundór has always been kind of special as all scientists are. Back in the days before the attack he never stopped chattering abou his ancient runes. Nowadays, he just won't stop singing.")
+                    say("Fundór has always been kind of special as all scientists are. Back in the days before the attack he never stopped chattering about his ancient runes. Nowadays, he just won't stop singing.")
                     say("...")
                 if CountVisitsToNadihm > 2:
                     say("Please, take us home!")
